@@ -2,7 +2,6 @@ class Router
   include Inesita::Router
 
   def routes
-    route '/', to: Home
-    route '/description', to: Description
+    route '/new-game', to: NewGameScreen
   end
 end

@@ -34,6 +34,7 @@ GEM
     opal-virtual-dom (0.3.0)
       opal
     paggio (0.2.6)
+    puma (2.15.3)
     rack (1.6.4)
     rack-rewrite (1.5.1)
     rb-fsevent (0.9.7)
@@ -58,6 +59,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   inesita (~> 0.3.0)
+  puma
 
 BUNDLED WITH
    1.11.2

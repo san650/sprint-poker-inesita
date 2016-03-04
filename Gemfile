@@ -10,6 +10,7 @@ gem 'inesita', '~> 0.3.0'
 
 # bootsrap assets
 gem 'bootstrap-sass'
+gem 'puma'
 
 # rails-assets are also supported
 # source 'https://rails-assets.org' do
