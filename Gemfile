@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'inesita', '~> 0.3.0'
+gem 'inesita', '~> 0.3'
 
 # add this gems to minify files on build
 #

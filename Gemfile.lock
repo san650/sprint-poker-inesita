@@ -10,7 +10,7 @@ GEM
     execjs (2.6.0)
     ffi (1.9.10)
     hike (1.2.3)
-    inesita (0.3.1)
+    inesita (0.3.2)
       listen (~> 3.0)
       opal (~> 0.9)
       opal-browser (~> 0.2)
@@ -31,12 +31,12 @@ GEM
     opal-browser (0.2.0)
       opal
       paggio
-    opal-phoenix (0.0.5)
+    opal-phoenix (0.0.6)
       opal
     opal-virtual-dom (0.3.0)
       opal
     paggio (0.2.6)
-    puma (2.15.3)
+    puma (3.0.2)
     rack (1.6.4)
     rack-rewrite (1.5.1)
     rb-fsevent (0.9.7)
@@ -60,7 +60,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
-  inesita (~> 0.3.0)
+  inesita (~> 0.3)
   opal-phoenix
   puma
 
