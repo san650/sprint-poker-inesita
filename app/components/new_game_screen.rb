@@ -22,12 +22,16 @@ class NewGameScreen
               end
               div class: 'col-md-6' do
                 label { 'Your name:' }
-                input class: 'form-control'
+                input class: 'form-control', value: store.user[:name]
               end
               div class: 'col-md-12' do
                 label { 'Session deck:' }
                 select class: 'form-control' do
-                  option { "Fibonacci (1,2,3,4,8 ...)" }
+                  store.decks.each do |deck|
+                    option value: deck.id do
+                      "#{deck.name} (#{deck[:cards].join(",")})"
+                    end
+                  end
                 end
               end
               div class: 'submit col-md-12 text-center' do

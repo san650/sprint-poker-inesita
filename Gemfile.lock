@@ -31,6 +31,8 @@ GEM
     opal-browser (0.2.0)
       opal
       paggio
+    opal-phoenix (0.0.5)
+      opal
     opal-virtual-dom (0.3.0)
       opal
     paggio (0.2.6)
@@ -59,6 +61,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   inesita (~> 0.3.0)
+  opal-phoenix
   puma
 
 BUNDLED WITH
