@@ -1,14 +1,23 @@
 class Store
   include Inesita::Store
 
-  attr_reader :decks, :user
+  attr_reader :decks, :user, :errors, :game, :current_game
 
   def initialize
     @store = $window.storage(:sprintpoker)
     @auth_token = @store[:auth_token]
     @decks = []
     @user = {}
-    @socket = Phoenix::Socket.new(SOCKET_URI, auth_token: @auth_token)
+    @game = {
+      users: [],
+      tickets: [],
+      owner: {},
+      deck: {
+        id: 1
+      }
+    }
+    @errors = {}
+    @socket = Phoenix::Socket.new(SOCKET_URI, params: {auth_token: @auth_token})
     @socket.connect
     connect_to_lobby
   end
@@ -26,6 +35,45 @@ class Store
       @decks = msg[:decks]
 		  render!
     end
-		@channel.join
+    @channel.on 'game' do |msg|
+      $console.log msg
+      @game = msg[:game]
+      router.go_to("/games/#{@game[:id]}")
+    end
+    @channel.join
+  end
+
+  def validate(what)
+    case what
+    when :user_name
+      @errors[:user_name] = nil
+      @errors[:user_name] = 'required' if !@user[:name] || @user[:name].strip.empty?
+      @errors[:user_name] = 'too long' if @user[:name] && @user[:name].length > 100
+      @channel.push('user:update', {user: @user}) unless @errors[:user_name]
+    when :game_name
+      @errors[:game_name] = nil
+      @errors[:game_name] = 'required' if !@game[:name] || @game[:name].strip.empty?
+      @errors[:game_name] = 'too long' if @game[:name] && @game[:name].length > 100
+    end
+    render!
+  end
+
+  def set(what, value)
+    case what
+    when :user_name
+      @user[:name] = value
+    when :game_name
+      @game[:name] = value
+    when :game_deck_id
+      $console.log value
+      @game[:deck][:id] = value
+    end
+  end
+
+  def new_game
+    validate(:user_name)
+    validate(:game_name)
+    $console.log @game
+    @channel.push('game:create', @game)
   end
 end

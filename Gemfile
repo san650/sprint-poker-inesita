@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 
-gem 'inesita', '~> 0.3'
-
+gem 'inesita', path: '/Users/fazibear/dev/inesita'
+gem 'opal-browser', github: 'opal/opal-browser'
 # add this gems to minify files on build
 #
-# gem 'uglifier'
-# gem 'htmlcompressor'
+#gem 'uglifier'
+#gem 'htmlcompressor'
 
 # bootsrap assets
 gem 'bootstrap-sass'
