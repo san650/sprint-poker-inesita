@@ -30,7 +30,11 @@ class GameSidebar
                 'YOU'
               end
             end
-
+            if user[:state] != 'connected'
+              span class: 'offline' do
+                'OFFLINE'
+              end
+            end
           end
         end
       end
