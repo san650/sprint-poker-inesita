@@ -103,14 +103,19 @@ class Store
   def new_game
     validate(:user_name)
     validate(:game_name)
-    @channel.push('game:create', @game) if valid?(:game)
-    @in_game = true
+    if valid?(:game)
+      @channel.push('game:create', @game)
+      @in_game = true
+    end
     render!
   end
 
   def join_game
-    @in_game = true
-    connect_to_game
+    validate(:user_name)
+    if valid?(:game)
+      @in_game = true
+      connect_to_game
+    end
     render!
   end
 end
