@@ -1,13 +1,14 @@
 class Store
   include Inesita::Store
 
-  attr_reader :decks, :user, :errors, :game, :in_game
+  attr_reader :decks, :user, :errors, :game, :in_game, :state
 
   def init
     @store = $window.storage(:sprintpoker)
     @auth_token = @store[:auth_token]
     @decks = []
     @user = {}
+    @state = {}
     @game = {
       users: [],
       tickets: [],
@@ -23,6 +24,7 @@ class Store
   end
 
   def connect_to_lobby
+    @channel.leave if @channel
     @channel = @socket.channel('lobby', {game_id: router.params[:game_id]})
 		@channel.on 'auth_token' do |msg|
       @store[:auth_token] = @auth_token = msg[:auth_token]
@@ -38,12 +40,25 @@ class Store
     @channel.on 'game' do |msg|
       @game = msg[:game]
       router.go_to("/games/#{@game[:id]}")
+      connect_to_game if in_game
     end
     @channel.join
   end
 
   def connect_to_game
+    @channel.leave
+    @channel = @socket.channel("game:#{router.params[:game_id]}")
 
+    @channel.on 'state' do |msg|
+      $console.log msg.inspect
+    end
+
+    @channel.on 'game' do |msg|
+      $console.log msg.inspect
+      @game = msg[:game]
+    end
+
+    @channel.join
   end
 
   def validate(what)
@@ -88,10 +103,12 @@ class Store
     validate(:game_name)
     @channel.push('game:create', @game) if valid?(:game)
     @in_game = true
+    render!
   end
 
   def join_game
     @in_game = true
+    connect_to_game
     render!
   end
 end
