@@ -9,12 +9,6 @@ class GameSidebar
           disabled: true,
           value: store.game[:name]
       end
-      div class: 'form-group' do
-        label { 'Session link:' }
-        input class: 'form-control',
-          disabled: true,
-          value: "http://sprintpoker.io/games/#{store.game[:id]}"
-      end
       ul class: 'form-group' do
         label { "Users (#{store.game[:users].count}):" }
         store.game[:users].each do |user|
@@ -37,6 +31,18 @@ class GameSidebar
             end
           end
         end
+      end
+      div class: 'form-group' do
+        label { 'Session link:' }
+        input class: 'form-control',
+          onclick: -> (e) { e.target.to_n.JS.setSelectionRange(0, e.target.value.length) },
+          value: "http://sprintpoker.io/games/#{store.game[:id]}"
+      end
+      div class: 'form-group' do
+        label { 'Mobile session link:' }
+        input class: 'form-control',
+          onclick: -> (e) { e.target.to_n.JS.setSelectionRange(0, e.target.value.length) },
+          value: "sprintpoker://#{store.game[:id]}"
       end
     end
   end
