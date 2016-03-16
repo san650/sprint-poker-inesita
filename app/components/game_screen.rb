@@ -8,7 +8,7 @@ class GameScreen
       end
       div class: 'col-md-8 col-md-offset-2 panel' do
         div class: 'col-md-8' do
-          h1 { "Sdf" }
+          component TicketsList
         end
         div class: 'col-md-4 sidebar' do
           component GameSidebar
