@@ -3,7 +3,7 @@ class Store
 
   attr_reader :decks, :user, :errors, :game, :current_game
 
-  def initialize
+  def init
     @store = $window.storage(:sprintpoker)
     @auth_token = @store[:auth_token]
     @decks = []
@@ -23,7 +23,7 @@ class Store
   end
 
   def connect_to_lobby
-    @channel = @socket.channel('lobby')
+    @channel = @socket.channel('lobby', {game_id: router.params[:game_id]})
 		@channel.on 'auth_token' do |msg|
       @store[:auth_token] = @auth_token = msg[:auth_token]
     end
@@ -36,7 +36,6 @@ class Store
 		  render!
     end
     @channel.on 'game' do |msg|
-      $console.log msg
       @game = msg[:game]
       router.go_to("/games/#{@game[:id]}")
     end
@@ -49,13 +48,24 @@ class Store
       @errors[:user_name] = nil
       @errors[:user_name] = 'required' if !@user[:name] || @user[:name].strip.empty?
       @errors[:user_name] = 'too long' if @user[:name] && @user[:name].length > 100
-      @channel.push('user:update', {user: @user}) unless @errors[:user_name]
+      @channel.push('user:update', {user: @user})
     when :game_name
       @errors[:game_name] = nil
       @errors[:game_name] = 'required' if !@game[:name] || @game[:name].strip.empty?
       @errors[:game_name] = 'too long' if @game[:name] && @game[:name].length > 100
     end
     render!
+  end
+
+  def valid?(what)
+    case what
+    when :user_name
+      @errors[:user_name] == nil
+    when :game_name
+      @errors[:game_name] == nil
+    when :game
+      @errors[:user_name] == nil && @errors[:game_name] == nil
+    end
   end
 
   def set(what, value)
@@ -65,7 +75,6 @@ class Store
     when :game_name
       @game[:name] = value
     when :game_deck_id
-      $console.log value
       @game[:deck][:id] = value
     end
   end
@@ -73,7 +82,6 @@ class Store
   def new_game
     validate(:user_name)
     validate(:game_name)
-    $console.log @game
     @channel.push('game:create', @game)
   end
 end

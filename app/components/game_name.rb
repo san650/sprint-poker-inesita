@@ -8,6 +8,7 @@ class GameName
         store.errors[:game_name]
       end if store.errors[:game_name]
       input class: 'form-control',
+        disabled: props[:disabled],
         value: store.game[:name],
         onchange: ->(e) { store.set(:game_name, e.target.value) },
         onblur: ->(e) { store.validate(:game_name) }
