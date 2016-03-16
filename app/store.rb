@@ -1,7 +1,7 @@
 class Store
   include Inesita::Store
 
-  attr_reader :decks, :user, :errors, :game, :current_game
+  attr_reader :decks, :user, :errors, :game, :in_game
 
   def init
     @store = $window.storage(:sprintpoker)
@@ -42,6 +42,10 @@ class Store
     @channel.join
   end
 
+  def connect_to_game
+
+  end
+
   def validate(what)
     case what
     when :user_name
@@ -71,7 +75,7 @@ class Store
   def set(what, value)
     case what
     when :user_name
-      @user[:name] = value
+      @user[:name] = value || ""
     when :game_name
       @game[:name] = value
     when :game_deck_id
@@ -82,6 +86,12 @@ class Store
   def new_game
     validate(:user_name)
     validate(:game_name)
-    @channel.push('game:create', @game)
+    @channel.push('game:create', @game) if valid?(:game)
+    @in_game = true
+  end
+
+  def join_game
+    @in_game = true
+    render!
   end
 end

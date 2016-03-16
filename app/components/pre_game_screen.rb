@@ -2,7 +2,7 @@ class PreGameScreen
   include Inesita::Component
 
   def render
-    if store.current_game
+    if store.in_game
       component GameScreen
     else
       component JoinGameScreen
