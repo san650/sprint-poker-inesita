@@ -51,11 +51,13 @@ class Store
 
     @channel.on 'state' do |msg|
       $console.log msg.inspect
+      render!
     end
 
     @channel.on 'game' do |msg|
       $console.log msg.inspect
       @game = msg[:game]
+      render!
     end
 
     @channel.join
