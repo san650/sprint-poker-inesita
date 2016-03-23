@@ -27,7 +27,7 @@ class TicketsEditor
       end
       ul do
         store.game["tickets"].each_with_index do |(id, ticket), idx|
-          li class: 'ticket' do
+          li class: 'ticket clearfix' do
             div class: 'number' do
               "##{idx+1}"
             end
@@ -50,12 +50,17 @@ class TicketsEditor
           end
         end
       end
-      div class: 'new-ticket' do
+      div class: 'new-ticket clearfix' do
         span class: 'number' do
           "##{store.game["tickets"].length + 1}"
         end
         input class: 'form-control',
               onkeydown: method(:add_ticket)
+      end
+      div class: 'submit' do
+        span class: 'btn btn-primary', onclick: -> {store.start_game} do
+          'Start voting'
+        end
       end
     end
   end

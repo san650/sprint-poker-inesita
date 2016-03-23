@@ -37,5 +37,9 @@ module Operations
       end
       render!
     end
+
+    def start_game
+
+    end
   end
 end
