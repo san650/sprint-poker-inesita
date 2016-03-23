@@ -10,8 +10,8 @@ class GameName
       input class: 'form-control',
         disabled: props[:disabled],
         value: store.game[:name],
-        onchange: ->(e) { store.set(:game_name, e.target.value) },
-        onblur: ->(e) { store.validate(:game_name) }
+        onchange: ->(e) { store.set_game_name(e.target.value) },
+        onblur: ->(e) { store.validate_game_name }
     end
   end
 end

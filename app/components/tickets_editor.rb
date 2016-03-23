@@ -1,8 +1,10 @@
-class TicketsList
+class TicketsEditor
   include Inesita::Component
 
   def add_ticket(e)
-
+    if e.code == 13
+      store.add_ticket(e.target.value)
+    end
   end
 
   def render
@@ -30,7 +32,7 @@ class TicketsList
             'Tiket numer jestesf'
           end
           span class: 'vote' do
-            '10'
+            '12'
           end
         end
       end

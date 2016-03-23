@@ -6,7 +6,7 @@ class GameDeck
       label { 'Session deck:' }
       select class: 'form-control',
              disabled: props[:disabled],
-             onchange: ->(e) { store.set(:game_deck_id, e.target.value) } do
+             onchange: ->(e) { store.set_game_deck_id(e.target.value) } do
         store.decks.each do |deck|
           option value: deck[:id] do
             "#{deck[:name]} (#{deck[:cards].join(",")})"

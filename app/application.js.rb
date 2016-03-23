@@ -2,12 +2,14 @@ require 'inesita'
 require 'phoenix'
 require 'browser/storage'
 
+require_tree './operations'
+require_tree './components'
+require_tree './screens'
+
 require 'config'
 require 'router'
 require 'store'
 require 'layout'
-
-require_tree './components'
 
 $document.ready do
   Inesita::Application.new(
