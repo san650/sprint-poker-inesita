@@ -22,9 +22,6 @@ class TicketsEditor
 
   def render
     div id: 'tickets-list' do
-      h1 do
-        store.game[:name]
-      end
       ul do
         store.game["tickets"].values.each_with_index do |ticket, idx|
           li class: 'ticket clearfix' do

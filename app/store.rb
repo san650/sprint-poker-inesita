@@ -11,10 +11,14 @@ class Store
   def init_state
     @decks = []
     @user = {}
-    @state = {}
+    @state = {
+      name: 'none',
+      tickets: {},
+      votes: {}
+    }
     @game = {
       users: [],
-      tickets: [],
+      tickets: {},
       owner: {},
       deck: {
         id: 1

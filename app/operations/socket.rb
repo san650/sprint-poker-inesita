@@ -8,7 +8,6 @@ module Operations
     end
 
     def connect_to_lobby
-      $console.log 'connect to lobby'
       @channel.leave if @channel
       @channel = @socket.channel('lobby', {game_id: router.params[:game_id]})
       @channel.on 'auth_token' do |msg|
@@ -31,17 +30,15 @@ module Operations
     end
 
     def connect_to_game
-      $console.log 'connect to game'
       @channel.leave
       @channel = @socket.channel("game:#{router.params[:game_id]}")
 
       @channel.on 'state' do |msg|
-        $console.log msg.inspect
+        @state = msg[:state]
         render!
       end
 
       @channel.on 'game' do |msg|
-        $console.log msg.inspect
         @game = msg[:game]
         render!
       end

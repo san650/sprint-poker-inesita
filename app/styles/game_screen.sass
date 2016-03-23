@@ -20,15 +20,41 @@
       border-bottom-right-radius: 10px
       background-color: #3a445c
 
+  h1
+    font-family: 'Avenir Next'
+    margin-top: 40px
+    text-align: center
+    font-size: 35px
+
+  h5
+    font-family: 'Droid Sherif'
+    text-align: center
+    font-size: 16px
+    color: #757b89
+    position: relative
+    overflow: hidden
+
+    &:before,
+    &::after
+      background-color: #edeff1
+      content: ""
+      display: inline-block
+      height: 1px
+      position: relative
+      vertical-align: middle
+      width: 50%
+
+    &:before
+      right: 1em
+      margin-left: -50%
+
+    &::after
+      left: 1em
+      margin-right: -50%
+
 
   #tickets-list
     margin: 0 20px
-    h1
-      font-family: 'Avenir Next'
-      margin-top: 40px
-      text-align: center
-      font-size: 35px
-
     ul
       font-family: 'Droid Sherif'
       margin: 0
