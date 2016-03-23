@@ -52,7 +52,19 @@ module Operations
     end
 
     def create_game
-      @channel.push('game:create', @game)
+      @channel.push('game:create', {game: @game})
+    end
+
+    def add_ticket(name)
+      @channel.push('ticket:create', {ticket: {name: name}})
+    end
+
+    def delete_ticket(id)
+      @channel.push('ticket:delete', {ticket: {id: id}})
+    end
+
+    def change_ticket_name(id, name)
+      @channel.push('ticket:update', {ticket: {id: id, name: name}})
     end
   end
 end
