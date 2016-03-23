@@ -35,7 +35,6 @@ module Operations
 
       @channel.on 'state' do |msg|
         @state = msg[:state]
-        puts @state
         render!
       end
 

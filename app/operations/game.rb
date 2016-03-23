@@ -4,7 +4,7 @@ module Operations
       @game[:name] = value
     end
 
-    def set_deck_game_id(value)
+    def set_game_deck_id(value)
       @game[:deck][:id] = value
     end
 
