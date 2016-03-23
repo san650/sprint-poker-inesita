@@ -4,10 +4,6 @@ module Operations
       @user[:name] = value || ""
     end
 
-    def update_user
-      @channel.push('user:update', {user: @user})
-    end
-
     def validate_user_name(what)
       @errors[:user_name] = nil
       @errors[:user_name] = 'required' if !@user[:name] || @user[:name].strip.empty?

@@ -46,5 +46,13 @@ module Operations
 
       @channel.join
     end
+
+    def update_user
+      @channel.push('user:update', {user: @user})
+    end
+
+    def create_game
+      @channel.push('game:create', @game)
+    end
   end
 end

@@ -23,7 +23,7 @@ module Operations
       validate_user_name
       validate_game_name
       if game_name_valid?
-        @channel.push('game:create', @game)
+        create_game
         @in_game = true
       end
       render!
