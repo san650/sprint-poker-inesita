@@ -23,7 +23,7 @@ class GameScreen
               store.current_ticket[:name]
             end
             h5 do
-              text "Ticket #{store.game["tickets"].keys.index(store.state[:current_ticket_id].to_s) + 1} of #{store.game["tickets"].size}"
+              text "Ticket #{store.game["tickets"].keys.index(store.state[:current_ticket_id]) + 1} of #{store.game["tickets"].size}"
             end
             component Cards
             component UsersList
