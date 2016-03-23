@@ -15,5 +15,9 @@ module Operations
     def user_name_valid?(what)
       @errors[:user_name] == nil
     end
+
+    def user_admin?
+      store.user[:id] == store.game[:owner][:id]
+    end
   end
 end

@@ -26,26 +26,26 @@ class TicketsEditor
         store.game[:name]
       end
       ul do
-        store.game["tickets"].each_with_index do |(id, ticket), idx|
+        store.game["tickets"].values.each_with_index do |ticket, idx|
           li class: 'ticket clearfix' do
             div class: 'number' do
               "##{idx+1}"
             end
             div class: 'name' do
-              input id: "ticket-#{id}",
+              input id: "ticket-#{ticket[:id]}",
                     class: 'form-control',
                     value: ticket["name"],
-                    onkeydown: ->(e) { change_ticket_name(id, e) },
-                    onblur: ->(e) { change_ticket_name(id, e) }
+                    onkeydown: ->(e) { change_ticket_name(ticket[:id], e) },
+                    onblur: ->(e) { change_ticket_name(ticket[:id], e) }
             end
             div class: 'vote' do
               ticket["pioints"] || '-'
             end
             div class: 'opts' do
               img src: '/static/edit.png',
-                onclick: ->(e) { $document["ticket-#{id}"].trigger(:click); e.stop! }
+                onclick: ->(e) { $document["ticket-#{ticket[:id]}"].trigger(:click); e.stop! }
               img src: '/static/delete.png',
-                onclick: -> { store.delete_ticket(id) }
+                onclick: -> { store.delete_ticket(ticket[:id]) }
             end
           end
         end
@@ -57,9 +57,13 @@ class TicketsEditor
         input class: 'form-control',
               onkeydown: method(:add_ticket)
       end
-      div class: 'submit' do
-        span class: 'btn btn-primary', onclick: -> {store.start_game} do
-          'Start voting'
+      if store.game["tickets"].empty?
+        text 'add some tickets !!!'
+      else
+        div class: 'submit' do
+          span class: 'btn btn-primary', onclick: -> {store.start_game} do
+            'Start voting'
+          end
         end
       end
     end

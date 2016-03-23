@@ -11,36 +11,21 @@ class TicketsList
         store.game[:name]
       end
       ul do
-        li class: 'ticket' do
-          span class: 'number' do
-            '#1'
-          end
-          span class: 'name' do
-            'As an user I want to create new account'
-          end
-          span class: 'vote' do
-            '5'
-          end
-        end
-        li class: 'ticket' do
-          span class: 'number' do
-            '#10'
-          end
-          span class: 'name' do
-            'Tiket numer jestesf'
-          end
-          span class: 'vote' do
-            '10'
+        store.game["tickets"].values.each_with_index do |ticket, idx|
+          li class: 'ticket clearfix' do
+            div class: 'number' do
+              "##{idx+1}"
+            end
+            div class: 'name' do
+              ticket["name"]
+            end
+            div class: 'vote' do
+              ticket["pioints"] || '-'
+            end
           end
         end
       end
-      div class: 'new-ticket' do
-        span class: 'number' do
-          '#1'
-        end
-        input class: 'form-control',
-              onkeydown: method(:add_ticket)
-      end
+      text 'wait for adding tickets...'
     end
   end
 end
