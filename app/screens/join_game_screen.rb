@@ -24,7 +24,7 @@ class JoinGameScreen
             component UserName
             component GameDeck, props: { disabled: true }
             div class: 'submit col-md-12 text-center' do
-              div class: 'btn btn-primary', onclick: -> {store.join_game} do
+              div class: 'btn btn-primary btn-padding', onclick: -> {store.join_game} do
                 'Start voting'
               end
             end

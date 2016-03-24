@@ -17,7 +17,7 @@ class NewGameScreen
             component UserName
             component GameDeck
             div class: 'submit col-md-12 text-center' do
-              div class: 'btn btn-primary', onclick: -> {store.new_game} do
+              div class: 'btn btn-primary btn-padding', onclick: -> {store.new_game} do
                 'Start voting'
               end
             end

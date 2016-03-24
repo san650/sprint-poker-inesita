@@ -58,7 +58,7 @@ class TicketsEditor
         text 'add some tickets !!!'
       else
         div class: 'submit' do
-          span class: 'btn btn-primary', onclick: -> {store.start_game} do
+          span class: 'btn btn-primary btn-padding', onclick: -> {store.start_game} do
             'Start voting'
           end
         end

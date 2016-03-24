@@ -1,4 +1,29 @@
 #game-screen
+  .bg
+    position: absolute
+    z-index: -1
+    opacity: .5
+  .bg-1
+    width: 312px
+    height: 87px
+    top: 315px
+    left: -310px
+  .bg-2
+    width: 156px
+    height: 154px
+    top: 40px
+    left: 1135px
+  .bg-3
+    width: 166px
+    height: 127px
+    top: 30px
+    left: -120px
+  .bg-4
+    width: 69px
+    height: 68px
+    top: 380px
+    left: 1150px
+
   .logo
     padding: 0px
     img
@@ -133,10 +158,45 @@
     .submit
       margin: 50px 0
       text-align: center
-      .btn
-        font-size: 20px
-        line-height: 45px
-        height: 60px
-        width: 245px
-        background-color: #317ec6
-        border-radius: 10px
+
+#controls
+  .btn
+    margin: 30px 10px
+
+#final-estimation
+  margin: 0 20px
+  background-color: #f0f1f2
+  height: 50px
+
+  .img
+    float: left
+    width: 50px
+    height: 50px
+    text-align: center
+    line-height: 45px
+    img
+      width: 16px
+      height: 21px
+
+  .label
+    color: black
+    font-family: 'Avenir Next'
+    font-size: 16px
+    font-weight: 800
+    line-height: 45px
+    float: left
+
+  .value
+    float: right
+    height: 50px
+    select
+      margin: 7px
+      width: 50px
+      font-weight: 800
+    span
+      color: white
+      line-height: 50px
+      margin: 0 5px 0 0
+      padding: 10px
+      background-color: #317ec6
+      border-radius: 10px

@@ -8,6 +8,7 @@ class GameScreen
       end
       div class: 'col-md-8 col-md-offset-2 panel' do
         div class: 'col-md-8' do
+          component Background
           if store.state[:name] == 'none'
             h1 do
               store.game[:name]
@@ -27,7 +28,10 @@ class GameScreen
             end
             component Cards
             component UsersList
-            text 'voting'
+            component FinalEstimation
+            if store.user_admin?
+              component Controls
+            end
           end
         end
         div class: 'col-md-4 sidebar' do
