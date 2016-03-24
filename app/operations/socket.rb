@@ -66,7 +66,7 @@ module Operations
       @channel.push 'ticket:update', {ticket: {id: id, name: name}}
     end
 
-    def change_ticket_points(id, poins)
+    def change_ticket_points(id, points)
       @channel.push 'ticket:update', {ticket: {id: id, points: points}}
     end
 

@@ -36,7 +36,7 @@ class TicketsEditor
                     onblur: ->(e) { change_ticket_name(ticket[:id], e) }
             end
             div class: 'vote' do
-              ticket["pioints"] || '-'
+              ticket["points"] || '-'
             end
             div class: 'opts' do
               img src: '/static/edit.png',

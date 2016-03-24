@@ -17,7 +17,7 @@ class TicketsList
               ticket["name"]
             end
             div class: 'vote' do
-              ticket["pioints"] || '-'
+              ticket["points"] || '-'
             end
           end
         end
