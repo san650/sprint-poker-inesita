@@ -1,6 +1,10 @@
 class NewGameScreen
   include Inesita::Component
 
+  def new_game(e)
+    store.new_game
+  end
+
   def render
     div id: 'pre-game-screen', class: 'container' do
       div class: 'row logo' do
@@ -17,7 +21,7 @@ class NewGameScreen
             component UserName
             component GameDeck
             div class: 'submit col-md-12 text-center' do
-              div class: 'btn btn-primary btn-padding', onclick: -> {store.new_game} do
+              div class: 'btn btn-primary btn-padding', onclick: method(:new_game) do
                 'Start voting'
               end
             end

@@ -1,6 +1,10 @@
 class JoinGameScreen
   include Inesita::Component
 
+  def join_game(e)
+    store.join_game
+  end
+
   def render
     div id: 'pre-game-screen', class: 'container' do
       div class: 'row logo' do
@@ -24,7 +28,7 @@ class JoinGameScreen
             component UserName
             component GameDeck, props: { disabled: true }
             div class: 'submit col-md-12 text-center' do
-              div class: 'btn btn-primary btn-padding', onclick: -> {store.join_game} do
+              div class: 'btn btn-primary btn-padding', onclick: method(:join_game) do
                 'Start voting'
               end
             end
