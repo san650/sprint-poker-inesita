@@ -12,8 +12,7 @@ class TicketsEditor
     if e.target.value != nil && e.target.value.strip != ''
       if e.is_a?(Browser::Event::Keyboard) && e.code == 13
         store.change_ticket_name(id, e.target.value)
-        #e.target.trigger(:blur)
-        e.stop!
+        e.target.to_n.JS.blur()
       elsif e.is_a?(Browser::Event::Focus)
         store.change_ticket_name(id, e.target.value)
       end
