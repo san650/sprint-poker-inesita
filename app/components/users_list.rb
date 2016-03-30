@@ -1,10 +1,6 @@
 class UsersList
   include Inesita::Component
 
-  def add_ticket(e)
-
-  end
-
   def render
     div id: 'list' do
       ul do

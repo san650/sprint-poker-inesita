@@ -43,5 +43,13 @@ module Operations
       change_current_ticket_id(ticket_id)
       render!
     end
+
+    def state_voting?
+      @state[:name] == 'voting'
+    end
+
+    def state_review?
+      @state[:name] == 'review'
+    end
   end
 end

@@ -1,6 +1,10 @@
 class GameSidebar
   include Inesita::Component
 
+  def select_all(e)
+    e.target.to_n.JS.setSelectionRange(0, e.target.value.length)
+  end
+
   def render
     form do
       div class: 'form-group' do
@@ -35,13 +39,13 @@ class GameSidebar
       div class: 'form-group' do
         label { 'Session link:' }
         input class: 'form-control',
-          onclick: -> (e) { e.target.to_n.JS.setSelectionRange(0, e.target.value.length) },
+          onclick: method(:select_all),
           value: "http://sprintpoker.io/games/#{store.game[:id]}"
       end
       div class: 'form-group' do
         label { 'Mobile session link:' }
         input class: 'form-control',
-          onclick: -> (e) { e.target.to_n.JS.setSelectionRange(0, e.target.value.length) },
+          onclick: method(:select_all),
           value: "sprintpoker://#{store.game[:id]}"
       end
     end

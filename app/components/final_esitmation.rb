@@ -1,6 +1,10 @@
 class FinalEstimation
   include Inesita::Component
 
+  def final_esimation(e)
+     store.change_ticket_points(store.state[:current_ticket_id], e.target.value)
+  end
+
   def render
     div id: 'final-estimation', class: 'clearfix' do
       div class: 'img' do
@@ -10,9 +14,9 @@ class FinalEstimation
         'Final estimation:'
       end
       div class: 'value' do
-        if store.user_admin? && store.state[:name] == 'review'
+        if store.user_admin? && store.state_review?
           select class: 'form-control',
-            onchange: ->(e) { store.change_ticket_points(store.state[:current_ticket_id], e.target.value) } do
+            onchange: method(:final_esimation) do
             store.game[:deck][:cards].each do |card|
               option { card }
             end
