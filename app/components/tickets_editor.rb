@@ -39,9 +39,9 @@ class TicketsEditor
               ticket["points"] || '-'
             end
             div class: 'opts' do
-              img src: '/static/edit.png',
-                onclick: ->(e) { $document["ticket-#{ticket[:id]}"].trigger(:click); e.stop! }
-              img src: '/static/delete.png',
+              img class: 'edit', src: '/static/edit.png',
+                onclick: -> { $document["ticket-#{ticket[:id]}"].to_n.JS.focus() }
+              img class: 'delete', src: '/static/delete.png',
                 onclick: -> { store.delete_ticket(ticket[:id]) }
             end
           end
