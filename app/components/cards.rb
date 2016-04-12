@@ -14,7 +14,7 @@ class Cards
   end
 
   def render
-    div id: 'cards', class: 'clearfix' do
+    div class: 'cards clearfix' do
       store.game[:deck][:cards].each do |card|
         div class: "card #{'selected' if selected?(card)} #{'disabled' if disabled? }",
           onclick: method(:vote) do

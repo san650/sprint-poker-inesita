@@ -12,5 +12,6 @@ gem 'opal-browser', github: 'opal/opal-browser'
 # bootsrap assets
 gem 'bootstrap-sass'
 gem 'puma'
+gem 'sass-globbing'
 
 gem 'opal-phoenix'

@@ -2,7 +2,7 @@ class GameScreen
   include Inesita::Component
 
   def render
-    div id: 'game-screen', class: 'container' do
+    div class: 'container game-screen' do
       div class: 'col-md-12 logo' do
         img src: '/static/logo-big.png'
       end

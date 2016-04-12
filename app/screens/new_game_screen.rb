@@ -6,7 +6,7 @@ class NewGameScreen
   end
 
   def render
-    div id: 'pre-game-screen', class: 'container' do
+    div class: 'container pre-game-screen' do
       div class: 'row logo' do
         img src: '/static/logo-big.png'
       end
