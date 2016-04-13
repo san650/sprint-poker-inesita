@@ -33,6 +33,8 @@ class GameScreen
             component UsersList
             if store.user_admin?
               component Controls
+            else
+              component Guide
             end
           end
         end
