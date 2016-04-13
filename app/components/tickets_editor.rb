@@ -54,7 +54,10 @@ class TicketsEditor
               onkeydown: method(:add_ticket)
       end
       if store.game["tickets"].empty?
-        text 'add some tickets !!!'
+        div class: 'info' do
+          img class: 'box', src: '/static/box.png'
+          h4 { 'Add your first ticket to the list above.' }
+        end
       else
         div class: 'submit' do
           span class: 'btn btn-primary btn-padding', onclick: -> {store.start_game} do

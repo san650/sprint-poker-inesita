@@ -22,6 +22,10 @@ class TicketsList
           end
         end
       end
+      div class: 'info' do
+        img class: 'hourglass', src: '/static/hourglass.png'
+        h4 { 'Wait for some tickets which will be added by admin.' }
+      end
     end
   end
 end

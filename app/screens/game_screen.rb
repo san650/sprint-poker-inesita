@@ -17,7 +17,6 @@ class GameScreen
               component TicketsEditor
             else
               component TicketsList
-              text 'wait for adding tickets...'
             end
           else
             h1 do
