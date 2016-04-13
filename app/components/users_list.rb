@@ -17,6 +17,18 @@ class UsersList
             end
           end
         end
+
+        li class: 'final-estimation-summary' do
+          div class: 'img' do
+            img src: '/static/final.png'
+          end
+          span class: 'label' do
+            'Final estimation:'
+          end
+          div class: 'value' do
+            text store.game[:tickets][store.state[:current_ticket_id]][:points] || ' - '
+          end
+        end
       end
     end
   end

@@ -25,9 +25,12 @@ class GameScreen
             h5 do
               text "Ticket #{store.game["tickets"].keys.index(store.state[:current_ticket_id]) + 1} of #{store.game["tickets"].size}"
             end
-            component Cards
+            if store.state_voting?
+              component Cards
+            else
+              component FinalEstimation
+            end
             component UsersList
-            component FinalEstimation
             if store.user_admin?
               component Controls
             end

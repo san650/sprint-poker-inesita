@@ -6,26 +6,19 @@ class FinalEstimation
   end
 
   def render
-    div id: 'final-estimation', class: 'clearfix' do
-      div class: 'img' do
-        img src: '/static/final.png'
-      end
-      span class: 'label' do
-        'Final estimation:'
-      end
-      div class: 'value' do
-        if store.user_admin? && store.state_review?
-          select class: 'form-control',
-            onchange: method(:final_esimation) do
-            store.game[:deck][:cards].each do |card|
-              option { card }
-            end
-          end
-        else
-          span do
-            text store.game[:tickets][store.state[:current_ticket_id]][:points] || ' - '
+    div class: 'final-estimation' do
+      img src: '/static/hourglass.png'
+      if store.user_admin?
+        h4 { 'Pick final estimation:' }
+        select class: 'form-control',
+          onchange: method(:final_esimation) do
+          option { "" }
+          store.game[:deck][:cards].each do |card|
+            option { card }
           end
         end
+      else
+        h4 { 'Right now administrator is reviewing points and picking final estimation.' }
       end
     end
   end
