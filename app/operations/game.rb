@@ -38,9 +38,12 @@ module Operations
       render!
     end
 
+    def next_ticket_id
+      @game[:tickets].detect { |k,v| break v[:id] if v[:points] == nil}
+    end
+
     def start_game
-      ticket_id = @game[:tickets].detect { |k,v| break v[:id] if v[:points] == nil}
-      change_current_ticket_id(ticket_id)
+      change_current_ticket_id(next_ticket_id)
       render!
     end
 
