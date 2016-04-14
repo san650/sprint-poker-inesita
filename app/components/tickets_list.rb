@@ -6,7 +6,7 @@ class TicketsList
   end
 
   def render
-    div id: 'list' do
+    div class: 'list' do
       ul do
         store.game["tickets"].values.each_with_index do |ticket, idx|
           li class: 'ticket clearfix' do

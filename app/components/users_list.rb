@@ -2,7 +2,7 @@ class UsersList
   include Inesita::Component
 
   def render
-    div id: 'list' do
+    div class: 'list' do
       ul do
         store.game["users"].each_with_index do |user, idx|
           li class: 'ticket clearfix' do
