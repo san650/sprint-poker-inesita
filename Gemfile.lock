@@ -1,13 +1,6 @@
 GIT
-  remote: git://github.com/opal/opal-browser.git
-  revision: 5d3be6e8ea7ae584c9fdddc8ce961b2e2107131a
-  specs:
-    opal-browser (0.2.0)
-      opal
-      paggio
-
-PATH
-  remote: /Users/fazibear/dev/inesita
+  remote: git://github.com/inesita-rb/inesita.git
+  revision: 3c868b51dc2a9d920a849fbb2700c215e689df35
   specs:
     inesita (0.4.0)
       listen (~> 3.0)
@@ -17,6 +10,14 @@ PATH
       sass (~> 3.4)
       slim (~> 3.0)
       thor (~> 0.19)
+
+GIT
+  remote: git://github.com/opal/opal-browser.git
+  revision: 5d3be6e8ea7ae584c9fdddc8ce961b2e2107131a
+  specs:
+    opal-browser (0.2.0)
+      opal
+      paggio
 
 GEM
   remote: https://rubygems.org/
