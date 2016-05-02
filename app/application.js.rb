@@ -1,10 +1,10 @@
 require 'inesita'
+require 'virtual_dom/support/browser'
+
 require 'phoenix'
 
 require 'browser'
 require 'browser/storage'
-
-require 'virtual_dom/external_support/browser'
 
 require_tree './operations'
 require_tree './components'
