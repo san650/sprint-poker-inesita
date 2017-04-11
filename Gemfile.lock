@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/opal/opal-browser.git
-  revision: 5d3be6e8ea7ae584c9fdddc8ce961b2e2107131a
+  revision: 6791db2dc63ea9bbe3b01444c4360813534d601d
   specs:
     opal-browser (0.2.0)
       opal
@@ -9,20 +9,20 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    autoprefixer-rails (6.3.6)
+    autoprefixer-rails (6.7.7.1)
       execjs
-    bootstrap-sass (3.3.6)
+    bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    concurrent-ruby (1.0.1)
-    execjs (2.6.0)
-    ffi (1.9.10)
+    concurrent-ruby (1.0.5)
+    execjs (2.7.0)
+    ffi (1.9.18)
     hike (1.2.3)
-    htmlcompressor (0.3.0)
-    inesita (0.4.0)
+    htmlcompressor (0.3.1)
+    inesita (0.6.1)
       listen (~> 3.0)
-      opal (~> 0.9)
-      opal-virtual-dom (~> 0.4.0)
+      opal (>= 0.9, < 0.11)
+      opal-virtual-dom (~> 0.5.0)
       rack-rewrite (~> 1.5)
       sass (~> 3.4)
       slim (~> 3.0)
@@ -31,43 +31,46 @@ GEM
       listen (~> 3.0)
       opal (~> 0.9)
       websocket (~> 1.0)
-    listen (3.1.2)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9.7)
-      ruby_dep (~> 1.1)
-    opal (0.9.2)
+    inesita-router (0.1.0)
+      inesita (~> 0.6.0)
+      opal (~> 0.10)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
+    opal (0.10.3)
       hike (~> 1.2)
       sourcemap (~> 0.1.0)
       sprockets (~> 3.1)
       tilt (>= 1.4)
     opal-phoenix (0.0.7)
       opal
-    opal-virtual-dom (0.4.1)
+    opal-virtual-dom (0.5.0)
       opal
     paggio (0.2.6)
-    puma (3.4.0)
-    rack (1.6.4)
+    puma (3.8.2)
+    rack (2.0.1)
     rack-rewrite (1.5.1)
-    rb-fsevent (0.9.7)
-    rb-inotify (0.9.7)
+    rb-fsevent (0.9.8)
+    rb-inotify (0.9.8)
       ffi (>= 0.5.0)
-    ruby_dep (1.1.0)
-    sass (3.4.22)
+    ruby_dep (1.5.0)
+    sass (3.4.23)
     sass-globbing (1.1.5)
       sass (>= 3.1)
-    slim (3.0.6)
-      temple (~> 0.7.3)
+    slim (3.0.7)
+      temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
     sourcemap (0.1.1)
-    sprockets (3.6.0)
+    sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    temple (0.7.6)
-    thor (0.19.1)
-    tilt (2.0.2)
-    uglifier (3.0.0)
+    temple (0.7.7)
+    thor (0.19.4)
+    tilt (2.0.7)
+    uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
-    websocket (1.2.3)
+    websocket (1.2.4)
 
 PLATFORMS
   ruby
@@ -77,6 +80,7 @@ DEPENDENCIES
   htmlcompressor
   inesita
   inesita-livereload
+  inesita-router
   opal-browser!
   opal-phoenix
   puma
@@ -84,4 +88,4 @@ DEPENDENCIES
   uglifier
 
 BUNDLED WITH
-   1.11.2
+   1.14.6
