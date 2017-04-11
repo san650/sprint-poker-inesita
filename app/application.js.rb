@@ -25,7 +25,7 @@ class Application
     component router
     footer do
       img src: '/static/logo-footer.png'
-      p { 'Crefted with love at El Passion 2016' }
+      p { "Crefted with love at El Passion #{Time.now.year}" }
     end
   end
 end
