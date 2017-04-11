@@ -14,8 +14,6 @@ require_tree './screens'
 require 'config'
 require 'router'
 require 'store'
-require 'layout'
-
 
 class Application
   include Inesita::Component
