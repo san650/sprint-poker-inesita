@@ -40,7 +40,7 @@ class GameSidebar
         label { 'Session link:' }
         input class: 'form-control',
           onclick: method(:select_all),
-          value: "http://sprintpoker-inesita.surge.sh/games/#{store.game[:id]}"
+          value: "http://sprintpoker.io/games/#{store.game[:id]}"
       end
       div class: 'form-group' do
         label { 'Mobile session link:' }

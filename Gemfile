@@ -16,3 +16,5 @@ gem 'puma'
 gem 'sass-globbing'
 
 gem 'opal-phoenix'
+
+gem 'rake'

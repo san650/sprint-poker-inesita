@@ -1,6 +1,5 @@
-desc 'deploy'
-task :deploy do
+desc 'build'
+task :build do
   sh 'bundle exec inesita build -f'
-  sh 'cp dist/index.html dist/200.html'
-  sh 'surge -p ./dist -d sprintpoker-inesita.surge.sh'
+  sh 'cp _redirects dist/_redirects'
 end
