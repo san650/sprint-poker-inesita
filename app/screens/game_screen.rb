@@ -3,11 +3,11 @@ class GameScreen
 
   def render
     div class: 'container game-screen' do
-      div class: 'col-md-12 logo' do
+      div class: 'col-sm-12 col-md-12 logo' do
         img src: '/static/logo-big.png'
       end
-      div class: 'col-md-12 panel' do
-        div class: 'col-md-8' do
+      div class: 'col-sm-12 col-md-12 panel' do
+        div class: 'col-sm-8 col-md-8' do
           component Background
           if store.state[:name] == 'none'
             h1 do
@@ -38,7 +38,7 @@ class GameScreen
             end
           end
         end
-        div class: 'col-md-4 sidebar' do
+        div class: 'col-sm-4 col-md-4 sidebar' do
           component GameSidebar
         end
       end
