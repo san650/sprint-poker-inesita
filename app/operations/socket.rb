@@ -8,6 +8,8 @@ module Operations
     end
 
     def connect_to_lobby
+      return if @connected_to_lobby
+
       @channel.leave if @channel
       @channel = @socket.channel('lobby', {game_id: router.params[:game_id]})
       @channel.on 'auth_token' do |msg|
@@ -27,6 +29,7 @@ module Operations
         connect_to_game if in_game
       end
       @channel.join
+      @connected_to_lobby = true
     end
 
     def connect_to_game
