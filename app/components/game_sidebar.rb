@@ -13,7 +13,7 @@ class GameSidebar
           disabled: true,
           value: store.game[:name]
       end
-      ul class: 'form-group' do
+      ul class: 'users form-group' do
         label { "Users (#{store.game[:users].count}):" }
         store.game[:users].each do |user|
           li do
@@ -36,7 +36,7 @@ class GameSidebar
           end
         end
       end
-      div class: 'form-group' do
+      div class: 'links form-group' do
         label { 'Session link:' }
         input class: 'form-control',
           onclick: method(:select_all),
