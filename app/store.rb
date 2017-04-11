@@ -30,6 +30,5 @@ class Store
   def init
     init_state
     init_socket
-    connect_to_lobby
   end
 end
