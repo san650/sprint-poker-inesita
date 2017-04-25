@@ -4,12 +4,16 @@ module Operations
       @store = $window.storage(:sprintpoker)
       @auth_token = @store[:auth_token]
       @socket = Phoenix::Socket.new(SOCKET_URI, params: {auth_token: @auth_token})
+    end
+
+    def connect
+      return if @connected
       @socket.connect
+      connect_to_lobby
+      @connected = true
     end
 
     def connect_to_lobby
-      return if @connected_to_lobby
-
       @channel.leave if @channel
       @channel = @socket.channel('lobby', {game_id: router.params[:game_id]})
       @channel.on 'auth_token' do |msg|
@@ -29,7 +33,6 @@ module Operations
         connect_to_game if in_game
       end
       @channel.join
-      @connected_to_lobby = true
     end
 
     def connect_to_game
