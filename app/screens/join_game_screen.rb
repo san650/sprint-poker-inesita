@@ -29,7 +29,7 @@ class JoinGameScreen
             component GameDeck, props: { disabled: true }
             div class: 'submit col-md-12 text-center' do
               div class: 'btn btn-primary btn-padding', onclick: method(:join_game) do
-                'Start voting'
+                'Start estimating'
               end
             end
           end

@@ -22,7 +22,7 @@ class NewGameScreen
             component GameDeck
             div class: 'submit col-md-12 text-center' do
               div class: 'btn btn-primary btn-padding', onclick: method(:new_game) do
-                'Start voting'
+                'Start estimating'
               end
             end
           end

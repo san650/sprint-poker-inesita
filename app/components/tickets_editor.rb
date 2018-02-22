@@ -62,10 +62,10 @@ class TicketsEditor
         div class: 'submit' do
           if store.next_ticket_id
             span class: 'btn btn-primary btn-padding', onclick: -> {store.start_game} do
-              'Start voting'
+              'Start estimating'
             end
           else
-            h4 { 'Nothing to vote, add new tickets.' }
+            h4 { 'Nothing to estimate, add new tickets.' }
           end
         end
       end
